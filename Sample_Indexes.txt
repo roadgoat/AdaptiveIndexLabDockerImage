@@ -1,0 +1,14 @@
+CREATE INDEX `ai_BrowserSnapshots` ON `Metadata`((distinct (pairs({"App_Key": `App_Key`, "Page_Name": `Page_Name`, "Timestamp": `Timestamp`, "type": `type`})))) WHERE (`type` = "BrowserSnapshots")
+
+CREATE INDEX `ai_browser_sessions` ON `Metadata`((distinct (pairs({"App_Key": `App_Key`, "Browser": `Browser`, "Region": `Region`, "Session_Start_Time": `Session_Start_Time`, "type": `type`})))) WHERE (`type` = "BrowserSessions")
+
+CREATE INDEX `ai_mobile_crash_report` ON `Metadata`((distinct (pairs({"App_Crash_Time": `App_Crash_Time`, "App_Key": `App_Key`, "Crash_Group_ID": `Crash_Group_ID`, "Crash_Id": `Crash_Id`, "Mobile_App_Name": `Mobile_App_Name`, "type": `type`})))) WHERE (`type` = "MobileCrashReport")
+
+CREATE INDEX `idx_mobile_crash_reports1` ON `Metadata`(`Crash_Id`,`Crash_Group_ID`,`App_Key`,`Mobile_App_Name`,`App_Crash_Time`,`type`) WHERE (`type` = "MobileCrashReport")
+
+CREATE INDEX `idx_mobile_crash_reports_agg1` ON `Metadata`(`Crash_Group_ID`,`Crash_Id`,`type`,`App_Key`,`Mobile_App_Name`,`App_Crash_Time`) WHERE (`type` = "MobileCrashReport")
+
+CREATE INDEX `idx_mobile_crash_reports_agg1` ON `Metadata`(`Crash_Group_ID`,`Crash_Id`,`type`,`App_Key`,`Mobile_App_Name`,`App_Crash_Time`) WHERE (`type` = "MobileCrashReport")
+
+
+BUILD INDEX ON `Metadata`(`ai_BrowserSnapshots`,`ai_browser_sessions`,`ai_mobile_crash_report`,`idx_mobile_crash_reports1`,`idx_mobile_crash_reports_agg1`)
