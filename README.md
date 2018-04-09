@@ -46,4 +46,4 @@ WHERE App_Key = "AD-AAB-AAB-XTE" AND
 
 ![alt text](https://github.com/roadgoat/AdaptiveIndexDemo/blob/master/QuerySample.png)
 
-Note: The primary index on the sample bucket was note built.  
+Note: The primary index on the sample bucket was built, adaptive indexes are not built, but will be for the lab exercise.  
